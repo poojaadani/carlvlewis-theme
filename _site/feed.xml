@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Carl V. Lewis</title>
+    <description>Data and visual journalist; UX designer and full-stack dev.; digital educator.</description>
+    <link>http://brianmaierjr.github.com/long-haul/</link>
+    <atom:link href="http://brianmaierjr.github.com/long-haul/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 01 Jul 2015 17:27:16 +0530</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 17:27:16 +0530</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      
+      <item>
+        <title>Using CartoDB 2.0 to geocode private prisons in comparison to state-by-state incarceration rates</title>
+        <description>&lt;img src=&quot;/assets/Screen-Shot-2014-08-20-at-11.21.51-AM.png&quot;&gt;
+&lt;p&gt;The &lt;a href=&quot;http://carlvlewis.net/visualizing-latest-census-estimates-using-cartodb-and-leaflet/&quot; target=&quot;_blank&quot;&gt;last post&lt;/a&gt; I wrote about &lt;a href=&quot;http://cartodb.com&quot; target=&quot;_blank&quot;&gt;CartoDB &lt;/a&gt;used the CartoDB API and &lt;a href=&quot;http://leaflet.js&quot; target=&quot;_blank&quot;&gt;Leaflet.js&lt;/a&gt; to produce a hover tooltip map of census data. Looking back, while it's quite useful to learn CartoDB's API, it's now possible to achieve those same visual cues and interactivity without spending time wading through complex, undocumented JavaScript. You can now do everything I did &lt;a href=&quot;http://carlvlewis.net/visualizing-latest-census-estimates-using-cartodb-and-leaflet/&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; using little more than CartoDB's frontend CMS.&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;So, when I ran across &lt;a href=&quot;https://www.dropbox.com/s/arkyewfj6z5psa6/enigma-enigma-prisons-all-facilities-7215ee9c7d9dc229d2921a40e899ec5f%20%281%2906.03.01%20AM.csv&quot; target=&quot;_blank&quot;&gt;this database &lt;/a&gt;of all prisons and correctional facilities in the nation on &lt;a href=&quot;http://enigma.io&quot; target=&quot;_blank&quot;&gt;Enigma.io&lt;/a&gt;, I used the dataset to put together this visualization displaying all 137 &lt;em&gt;private &lt;/em&gt;prisons and correctional facilities – all of which are  owned entirely by just five different private enterprises – and then added a simple chloropleth layer displaying incarceration rates by state underneath.&lt;/p&gt;
+&lt;p&gt;Can't see what's going on too well at the resolution below? Here's a standalone package:&lt;br /&gt;
+[su_heading size=&quot;25&quot;]&lt;a href=&quot;http://carlvlewis.net/private-prisons&quot; target=&quot;_blank&quot;&gt;Click here to view the project live&lt;/a&gt;[/su_heading]&lt;br /&gt;
+&lt;em&gt;(yes, it's responsive!)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;iframe src=&quot;//carlvlewis.cartodb.com/viz/d785d444-0cb0-11e4-b8bc-0e230854a1cb/embed_map?title=false&amp;amp;description=false&amp;amp;search=false&amp;amp;shareable=true&amp;amp;cartodb_logo=true&amp;amp;layer_selector=true&amp;amp;legends=true&amp;amp;scrollwheel=true&amp;amp;fullscreen=true&amp;amp;sublayer_options=1%7C1&amp;amp;sql=&amp;amp;zoom=3&amp;amp;center_lat=37.92686760148135&amp;amp;center_lon=-85.869140625&quot; width=&quot;100%&quot; height=&quot;520&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;br /&gt;
+&lt;/em&gt;&lt;br /&gt;
+This visualization is a case in which deeper statistical analysis and consideration of multiple variables would've bolstered the possible argument that private prisons lead to higher incarceration rates, if such a claim is true, that is (i.e., determining a statistically significant correlation between number of inmates in each state with the number of private prisons or correctional facilities located there). &lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;Such a &lt;a href=&quot;http://journal.radicalcriminology.org/index.php/rc/article/view/44/html&quot; target=&quot;_blank&quot;&gt;data-driven study of the private prison industry &lt;/a&gt;conducted by U.C. Berkely Ph.D. student Chris Petrella concluded that blacks are disproportionately incarcerated in private prisons as opposed to public jails.&lt;/p&gt;
+&lt;p&gt;A similar methodology could be applied to private prison populations in general, as many private prisons are required by state or local law to have a minimum quota of around 90 to 95 percent occupancy to keep their government contracts. It would be interesting, too, to visualize that data in a manner more easily accesible to the average user than an academic research journal.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Tools I would've used before new CartoDB:&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Batch geocode by &lt;a href=&quot;http://www.findlatitudeandlongitude.com/batch-geocode/#.U8ZZY41dUd9&quot; target=&quot;_blank&quot;&gt;findlatitudelongitude&lt;/a&gt; to geocode the address data into lat/long coordinates.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://colorbrewer2.org&quot; target=&quot;_blank&quot;&gt;ColorBrewer2.org &lt;/a&gt;to find equidistant color scales.&lt;/li&gt;
+&lt;li&gt;Locating .shp, .kml or .geojson polygons for the U.S. states.&lt;/li&gt;
+&lt;li&gt;Excel to merge tables and bind geographic with numeric data.&lt;/li&gt;
+&lt;li&gt;A custom JavaScript powered control panel – like &lt;a href=&quot;http://multimedia.savannahnow.com/media/restaurants/maps/savannahchatham.html#.U8Zbg41dUd8&quot; target=&quot;_blank&quot;&gt;the one I used here&lt;/a&gt; – to categorize the locations by owner.&lt;/li&gt;
+&lt;li&gt;Leaflet.js&lt;/li&gt;
+&lt;li&gt;MapBox&lt;/li&gt;
+&lt;li&gt;Who knows?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;All of those tasks are automated in the new CartoDB!&lt;/h3&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Wed, 16 Jul 2014 06:48:19 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/using-cartodb-2-0-geocode-private-prisons-comparison-state-state-incarceration-rates/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/using-cartodb-2-0-geocode-private-prisons-comparison-state-state-incarceration-rates/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Using plotl.y to analyze and visualize data in variety of interactive charts, graphs</title>
+        <description>&lt;p&gt;&lt;iframe width=&quot;640&quot; height=&quot;480&quot; frameborder=&quot;0&quot; seamless=&quot;seamless&quot; scrolling=&quot;no&quot; src=&quot;https://plot.ly/~carlvlewis/6.embed?width=640&amp;height=480&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;It's been a while since I've had the leisure to play with new &lt;a href=&quot;https://github.com/carlvlewis/carlvlewis.github.com-fltimesunion/commit/0f38d526650b24a006f94a3d5549b3a64248a917?short_path=77062ad#diff-77062ade2810a886dd4dc035a83ed744&quot;&gt;open-source tools for data journalism.&lt;/a&gt; It's been even longer since I've written a tutorial. Today I wanted to explore a fairly WYSIWYG web app &lt;a href=&quot;http://plotly.com&quot; target=&quot;_blank&quot;&gt;Plotly&lt;/a&gt;. Although most of the features on face value appear to be not much more than what you can do in Google Visualization Playground or an open-source library like Highcharts.js – basic chart types on-the-fly, hover interactions – what particularly stands out about Plotly is its ability to perform many of the statistical analyses to your dataset before you go through the process of visualizing it.&lt;/p&gt;
+&lt;p&gt;For example, you can calculate percent change from a set of chronological raw numbers to display accurate trend data by simply choosing &quot;Data Analysis&amp;gt;Percent Change&quot; in the Grid View. I tried this out with some historical data scraped by the folks at &lt;a href=&quot;http://enigma.io&quot; target=&quot;_blank&quot;&gt;enigma.io&lt;/a&gt; on the percentage of the Savannah-area workforce in the hospitality industry, even adding in a fit or &quot;trend&quot; line to verify the upward tick:&lt;br /&gt;
+&lt;!--more--&gt;&lt;br /&gt;
+As you can see, plot.ly lets the user easily add in annotations explaining the data. Granted, this could be accomplished using &lt;a href=&quot;http://highcharts.js&quot; target=&quot;_blank&quot;&gt;other tools&lt;/a&gt;, as well, but not so seamlessly. The user interface is a little cumbersome, and is still in beta. But judging by my experiences, this is a quicker solution than a JavaScript library and a more feature-rich choice than Google Charts.&lt;/p&gt;
+&lt;p&gt;Just to give you an idea of the full range of more than 45 different standard chart types, I put together this slick heat map displaying the average unique visitors I've received on my blog for the past month during certain times and days of the week. Take it for a whirl:&lt;/p&gt;
+&lt;p&gt;&lt;iframe src=&quot;https://plot.ly/~carlvlewis/13/average-unique-visitors-to-carlvlewisnet-jan-jun-2014/&quot; width=&quot;100%&quot; height=&quot;350&quot; frameborder=&quot;no&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;Not bad for a completely free, collaborative, easy-to-teach tool, huh? It's no &lt;a href=&quot;http://d3.js&quot; target=&quot;_blank&quot;&gt;d3.js&lt;/a&gt;, but it does the job quite nicely. Especially when it comes to saving time writing out complicated Excel formulas.&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Fri, 04 Jul 2014 14:11:03 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/using-plotly-analyze-visualize-data-variety-interactive-charts-graphs/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/using-plotly-analyze-visualize-data-variety-interactive-charts-graphs/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Making the case for the &quot;post-platform&quot; journalist</title>
+        <description>&lt;p&gt;&lt;script class=&quot;speakerdeck-embed&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot; async=&quot;&quot; data-id=&quot;de2e5100d6f10131602d461b2c9fe8fa&quot; data-ratio=&quot;1.77777777777778&quot;&gt;&lt;/script&gt;&lt;br /&gt;
+Yesterday, I presented a five-minute lightning talk at the &lt;a href=&quot;http://ccj.mercer.edu&quot;&gt;Center for Collaborative Journalism&lt;/a&gt; on what I'm tentatively calling the &quot;post-platform&quot; journalist. From &quot;print journalist&quot;, to &quot;data journalist&quot;, to &quot;multimedia journalist&quot; and even to &quot;social journalist,&quot; it seems as though the qualifiers that often get placed before the word &quot;journalist&quot; abound in almost cliche numbers. Each of these &quot;types&quot; of journalism typically seek to clarify the &lt;em&gt;platform &lt;/em&gt;in which the individual tells the story rather than the content of the story itself. But in an era of information abundance and the democratization of publishing, we've seen the rapid rise of almost &lt;em&gt;limitless&lt;/em&gt; numbers of platforms that require a range of almost &lt;em&gt;limitless&lt;/em&gt; skills.&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;Journalism as a discipline has also expanded beyond traditional industrialized roles to encompass nontraditional forms of community information-dissemination and engagement, including community bloggers, content marketing experts, data scientists and entrepreneurs.&lt;/p&gt;
+&lt;p&gt;Hence why I think it's time we get past the notion of &quot;platforms.&quot; Instead of terms such as &quot;cross-platform journalist&quot; or &quot;multimedia journalist,&quot; it now seems more appropriate to ditch the qualifiers altogether for a term that reflects the single overarching goal of all journalists: To focus on telling the story in the most effective way possible, and not get caught up with the platforms from which we tell them.&lt;/p&gt;
+&lt;p&gt;Thoughts?&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Mon, 16 Jun 2014 08:08:27 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/making-case-post-platform-journalism/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/making-case-post-platform-journalism/</guid>
+        
+        <category>journalist</category>
+        
+        <category>Post-platform</category>
+        
+        <category>semantics</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>My recent family loss, and introducing Borrow.ly, my next adventure</title>
+        <description>&lt;p&gt;In the long-overdue 7 months since I last posted here, I've gone through &lt;a href=&quot;http://carlvlewis.tumblr.com/post/83499686044/coming-to-terms-with-the-harsh-heartbreaking-reality&quot; target=&quot;_blank&quot;&gt;one of the most difficult situations of my life&lt;/a&gt; – one which I'm not seeking your sympathy for, and also not embarrassed to admit the depression the loss brought on.  I'll leave all &lt;a href=&quot;http://carlvlewis.tumblr.com/post/83499686044/coming-to-terms-with-the-harsh-heartbreaking-reality&quot; target=&quot;_blank&quot;&gt;that stuff&lt;/a&gt; to Tumblr for you to read should you wish&lt;/p&gt;
+&lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;[su_quote cite=&quot;Kristine Lily&quot;]It's not how hard you fall, but how fast you get back on your feet.[/su_quote]&lt;/p&gt;
+&lt;p&gt;It's taken me four months to reach a point of personal acceptance at mom's loss, but I'm already &lt;a href=&quot;http://borrowly.com&quot; target=&quot;_blank&quot;&gt;jumping up&lt;/a&gt;. A quotation that went viral on social media after the loss of legendary southern poet Maya Angelou this week cemented my will to get back up, and do so with no inhibitions. Courtesy of &lt;a href=&quot;http://www.buzzfeed.com/krystieyandoli/maya-angelou-quotes-that-will-inspire-you-to-be-a-better?sub=2993524_2421512&quot; target=&quot;_blank&quot;&gt;this comforing and value-added BuzzFeed listicle&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;[caption id=&quot;attachment_3841&quot; align=&quot;aligncenter&quot; width=&quot;222&quot;]&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2014/05/enhanced-12185-1392074519-6.jpg&quot;&gt;&lt;img class=&quot; wp-image-3841&quot; src=&quot;/assets/enhanced-12185-1392074519-6.jpg&quot; alt=&quot;Fred Brown / Getty Images&quot; width=&quot;222&quot; height=&quot;319&quot; /&gt;&lt;/a&gt; Fred Brown / Getty Images[/caption]&lt;/p&gt;
+&lt;p&gt;[su_divider]&lt;/p&gt;
+&lt;p&gt;My work on &lt;a href=&quot;http://borrow.ly&quot; target=&quot;_blank&quot;&gt;borrow.&lt;span style=&quot;text-decoration: underline;&quot;&gt;ly&lt;/span&gt;&lt;/a&gt;  – a first-of-its-kind  geofenced neighborhood household item-sharing platform – has already received positive feedback regarding its business model, both from &lt;a href=&quot;http://quantummedia.com/Our_Team/Principals/Ava_Seave/&quot; target=&quot;_blank&quot;&gt;Ava Seave&lt;/a&gt; of Quantum Media and Columbia Business School, and from NYC tech-startup collectives such as StartupBoost, which &lt;a href=&quot;http://www.meetup.com/Startup-Boost-New-York-City/events/174201502/&quot; target=&quot;_blank&quot;&gt;recently listed&lt;/a&gt; borrow.ly as &quot;one of the hottest startups in Silicon Alley.&quot;  Check out the gallery below to get a sneak-peek at what's to come:&lt;/p&gt;
+&lt;p&gt;[gallery ids=&quot;3842,3848,3845,3847,3844,3843&quot;]&lt;/p&gt;
+&lt;p&gt;Oh, and did I mention I start a Data Science with Python course at&lt;a href=&quot;%20http://GeneralAssemb.ly&quot; target=&quot;_blank&quot;&gt; GeneralAssemb.ly&lt;/a&gt; Tuesday? Looking forward to learning even more as I build borrow.ly out.&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Sat, 31 May 2014 02:44:22 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/quick-life-update-and-introducing-borrow-ly-my-next-adventure/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/quick-life-update-and-introducing-borrow-ly-my-next-adventure/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>So long, Savannah, and a new entrepreneurial path</title>
+        <description>&lt;img src=&quot;/assets/Screen-Shot-2014-04-22-at-2.29.34-AM1.png&quot;&gt;
+&lt;p&gt;&lt;em&gt;Perhaps my favorite Instagram shot ever snapped for the &lt;a href=&quot;http://instagram.com/savannahnow&quot; target=&quot;_blank&quot;&gt;@savannahnow&lt;/a&gt; Instagram account, which we grew to nearly 2,000 followers in a year's time.&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;This week, I put in my two weeks' notice at Savannah's &lt;a href=&quot;http://savannahnow.com&quot; target=&quot;_blank&quot;&gt;Morning News Media&lt;/a&gt; and our parent company, &lt;a href=&quot;http://morris.com&quot; target=&quot;_blank&quot;&gt;Morris Publishing Group&lt;/a&gt;, to move back after the holiday to New York City to join an up-and-coming NYC-based startup.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;In my year-and-a-half at the helm of the SMN's digital content and product development strategies, including launching &lt;a href=&quot;http://dosavannah.com&quot; target=&quot;_blank&quot;&gt;dosavannah.com&lt;/a&gt;, I learned invaluable management skills, conflict resolution and the courage to push fearlessly for innovation, even when tradition and red tape got in the way. &lt;!--more--&gt;I also had the pleasure of leading an incredibly talented team of digital journalists, including &lt;a href=&quot;http://janaykingsberry.com&quot;&gt;Janay Kingsberry&lt;/a&gt; and &lt;a href=&quot;http://twitter.com/catiemafera&quot;&gt;Catie Mafera&lt;/a&gt;, as well as working underneath media disruption visionaries such as &lt;a href=&quot;https://www.linkedin.com/pub/craig-sims/3/523/496&quot;&gt;Craig Sims&lt;/a&gt; and &lt;a href=&quot;http://yelvington.com&quot;&gt;Steve Yelvington&lt;/a&gt;; talented digital marketers such as &lt;a href=&quot;https://www.linkedin.com/profile/view?id=2054314&amp;amp;authType=NAME_SEARCH&amp;amp;authToken=8qGQ&amp;amp;locale=en_US&amp;amp;srchid=953588771398146313327&amp;amp;srchindex=1&amp;amp;srchtotal=63&amp;amp;trk=vsrp_people_res_name&amp;amp;trkInfo=VSRPsearchId%3A953588771398146313327%2CVSRPtargetId%3A2054314%2CVSRPcmpt%3Aprimary&quot; target=&quot;_blank&quot;&gt;Stacy Jennings&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/jhaymanPR&quot; target=&quot;_blank&quot;&gt;Jessica Hayman&lt;/a&gt;; and tireless sales professionals working around-the-clock to develop new revenue streams for local news, such as &lt;a href=&quot;https://www.linkedin.com/profile/view?id=41178946&amp;amp;locale=en_US&amp;amp;trk=tyah&amp;amp;trkInfo=tarId%3A1398146633026%2Ctas%3Arachel%20gardner%2Cidx%3A1-1-1&quot; target=&quot;_blank&quot;&gt;Rachel Gardner&lt;/a&gt; and Laura Ray Wearren.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;But the innovator's bug has been itching worse and worse lately, pushing me to expand my skill-set and programming abilities at a more rapid pace. While family issues landed me in Savannah originally following the &lt;a href=&quot;http://www.theblacksheartimes.com/articles/2012/03/18/obituaries/doc4f662f194f297177971782.txt&quot; target=&quot;_blank&quot;&gt;death of my dad &lt;/a&gt;in May 2012, my mom and I have had nearly a year-and-a-half to heal, and it's time for my next chapter. Given NYC's burgeoning tech/entrepreneurial scene, I finally decided this week to make a leap of faith into the big data startup community, as well as (possibly) explore new ways of building stronger, more informed communities.&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;I'll keep you posted.&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Mon, 11 Nov 2013 01:32:42 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/so-long-savannah-and-a-new-entrepreneurial-path/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/so-long-savannah-and-a-new-entrepreneurial-path/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Tutorial: Building a hover-enabled map using Tilemill</title>
+        <description>&lt;img src=&quot;/assets/Screen-Shot-2012-08-20-at-5.54.28-PM.png&quot;&gt;
+&lt;p&gt;&lt;em&gt;This is the first of two tutorials on adding hover interactions to interactive maps&lt;em&gt; using free, open-source tools.&lt;/em&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Today I wanted to break down the step-by-step process of how I created &lt;a href=&quot;http://carlvlewis.net/?portfolio=interactive-statewide-population-change-between-2010-and-2011&quot;&gt;this interactive, chloropleth map&lt;/a&gt; of Georgia population change from 2010 to 2011. &lt;!--more--&gt;While today's tutorial doesn't cover how to add hover states or moving tooltips to your maps, such as those you see in &lt;a href=&quot;http://carlvlewis.net/cartodbleaflet/examples/statewidepop.html&quot;&gt;this iteration&lt;/a&gt; of the same map made using &lt;a href=&quot;https://github.com/Vizzuality/cartodb-leaflet&quot;&gt;CartoDB+Leaflet&lt;/a&gt;, I'll cover how to add those more advanced features in a later post (they require using a few more tools and doing a bit more programming). For now, though, we're going to stick to the basics of simple hover interactions. Here's what you'll need to follow along:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mac OS X&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.qgis.org/&quot;&gt;QGis&lt;/a&gt; (free)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tilemill.com&quot;&gt;Tilemill&lt;/a&gt; (free)&lt;/li&gt;
+&lt;li&gt;A free &lt;a href=&quot;http://mapbox.com&quot;&gt;MapBox&lt;/a&gt; account where you will host your MBTiles&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.google.com&quot;&gt;Google spreadsheets&lt;/a&gt; (or Microsoft Excel, if you're more comfortable with that)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;1. Gathering and preparing the data&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;The first thing you'll need to do is locate your data and parse it down to a format in which it can be easily visualized. For this example, we're using population estimates from the U.S. Census Bureau, which, luckily for us, has already done most of the heavy lifting analysis-wise. Download the data for Georgia or whatever other state you wish to visualize as a comma separated value (.csv) file from &lt;a href=&quot;http://www.census.gov/popest/data/counties/totals/2011/CO-EST2011-03.html&quot;&gt;this page&lt;/a&gt;. Now you'll want to turn that .csv file into a Google spreadsheet. You can do this from the Google Drive dashboard by selecting Create&amp;gt;Spreadsheet, then choosing File&amp;gt;Import once your new spreadsheet opens. Locate and upload the .csv file. Select &quot;Replace current spreadsheet&quot; and set &quot;Comma&quot; as the separator character. Voila. Your data should then appear for each county. Here's what the correct options for that will look like:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-07-at-6.55.50-PM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3098&quot; title=&quot;Screen Shot 2012-08-07 at 6.55.50 PM&quot; src=&quot;/assets/Screen-Shot-2012-08-07-at-6.55.50-PM.png&quot; alt=&quot;&quot; width=&quot;600&quot; height=&quot;450&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Given that each county has a different base population, the only standar way to compare en masse how many residents each county gained or lost is by calculating the percent change (see &lt;a href=&quot;http://www.mathgoodies.com/lessons/percent/change.html&quot;&gt;here&lt;/a&gt; to figure out how to calculate that in Excel or Google Spreadsheets). In this example, however, the Census Bureau has already calculated out the percent change for us, making our job that much easier. Delete all the unnecessary columns from the spreadsheet, leaving only the county name in the first column, the 2010 and 2011 population totals in the second and third columns, and the &quot;Percent&quot; value in the fourth column (the &quot;Percent&quot; value refers to the percent change between the two years). Also make sure to delete any extra rows at the top or bottom of the spreadsheet, so that the first row contains the column titles, with the first county beginning on the second row and ending on the last row. Highlight the column containing the county names and select “Data&amp;gt;Sort sheet by column, A-Z.&quot; This will put the entries in alphabetical order.&lt;/p&gt;
+&lt;p&gt;If you happen to get a weird period ('.') preceding each county name as I did, you can get rid of it pretty easily by performing the following steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Insert a new column to the right and, assuming your first county name begins in cell A2, enter the following formula into B2: &lt;em&gt;=MID(A2,2,LEN(A2))&lt;/em&gt;. This function deletes the first character of the county name –– the unwanted period –– automatically.&lt;/li&gt;
+&lt;li&gt;Copy and paste the new B2 cell into the rest of the rows to apply the same formula throughout the entire spreadsheet.&lt;/li&gt;
+&lt;li&gt;Copy the new period-free column you just created and paste it as unformatted text into another new column to the right by selecting &quot;Paste special&amp;gt;Paste values only.&quot; This formats the data in new column as values only so that it they won't include a formula that depends on the incorrectly formatted column to work.&lt;/li&gt;
+&lt;li&gt;Delete the first two columns so that the first column now becomes the county names only, free of the preceding periods.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We're almost finished getting the data ready. All we have left to do is add in a column containing the official county codes for each county so that we'll have a common attribute with which we can merge the spreadsheet with the geometric data later. Download &lt;a href=&quot;http://www.census.gov/popest/data/counties/totals/2011/files/CO-EST2011-Alldata.csv&quot;&gt;this .csv&lt;/a&gt; from the Census Bureau, which contains the county codes for all 50 states. Open it as a Google spreadsheet and delete all the rows except for the ones for the state you're visualizing. With only the rows for the state at hand remaining, highlight the &quot;ctyname&quot; column and select &quot;Data&amp;gt;Sort values from A-Z.&quot; This should reorder the spreadsheet to be exactly the same alphabetic order as the spreadsheet with the population totals. Copy the &quot;county&quot; column containing the numeric county codes, which should now also be arranged in numeric order, and paste it into a new column in the spreadsheet with the population totals, which should also be sorted alphabetically. This should now give you the correct county codes for each county in a new column. Title that column simply &quot;COUNTY&quot; (all-caps). For an idea of what things should look like at this point, check out my Google spreadsheet &lt;a href=&quot;https://docs.google.com/spreadsheet/ccc?key=0Au4D8Alccn4xdGpUTGQwZUNUMnR4MUtRY2FNS0pBaEE&quot;&gt;here&lt;/a&gt;, or see the following screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-06-at-1.41.32-AM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3091&quot; title=&quot;Screen Shot 2012-08-06 at 1.41.32 AM&quot; src=&quot;/assets/Screen-Shot-2012-08-06-at-1.41.32-AM.png&quot; alt=&quot;&quot; width=&quot;589&quot; height=&quot;495&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;One last thing to keep in mind: If your county codes include values less than three digits, which they probably will, make sure any values less than three-digits long have 0s preceding them to force them to be three digits long (i.e. '001'). That way, it will match up with the three digit values in the geometric data later on in the process.&lt;/p&gt;
+&lt;p&gt;Now that we have our population data ready, let's download the corresponding geometric county polygons from the Census Bureau &lt;a href=&quot;http://www.census.gov/geo/www/cob/co2000.html&quot;&gt;here&lt;/a&gt;. For this tutorial we'll be using the shapefiles (.shp) format, so make sure to select the shp.zip option on the download page. I obviously used Georgia in this example; feel free to choose whatever other state you desire, so long as you follow the exact same instructions. Unzip the archive to your computer. You should see three files in the new unzipped folder: a .dbf, a .shp and a .shx. All we'll be need for this tutorial is the .shp file.&lt;/p&gt;
+&lt;p&gt;At this point, you should have &lt;strong&gt;two different files&lt;/strong&gt;: a Google spreadsheet of data formatted something like &lt;a href=&quot;https://docs.google.com/spreadsheet/ccc?key=0Au4D8Alccn4xdGpUTGQwZUNUMnR4MUtRY2FNS0pBaEE&quot;&gt;this&lt;/a&gt;, and a shapefile of corresponding county polygons. The next step will be to take the population data and bind it to the shapefile so that the two match up.&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]2. Binding the data to the shapefile using QGis[/typography]&lt;/p&gt;
+&lt;p&gt;Fire up QGis. Select the &quot;Add Vector Layer&quot; option from the top of the window and locate the .shp file you downloaded earlier. Open it in QGis and you should see a nice outline of your state that looks something like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-05-at-10.20.45-PM.png&quot;&gt;&lt;img class=&quot;wp-image-3058 aligncenter&quot; title=&quot;Screen Shot 2012-08-05 at 10.20.45 PM&quot; src=&quot;/assets/Screen-Shot-2012-08-05-at-10.20.45-PM.png&quot; alt=&quot;&quot; width=&quot;526&quot; height=&quot;350&quot; /&gt;&lt;/a&gt;Now go back to your newly created Google spreadsheet and export the data as a .csv by selecting &quot;File&amp;gt;Download data as.&quot; After downloading the .csv, rename it to something simple like &quot;georgia.csv.&quot; The next thing we need to do is import the .csv into QGis. But before we can do that, we need to create a new '.csvt' file by the same name and in the same directory as the .csv that will tell QGis what type of data each column is (string, number, real, etc.). For this example, your '.csvt' file will look something &lt;a href=&quot;https://docs.google.com/open?id=0B-4D8Alccn4xbnVVU2JyX3l1S0E&quot;&gt;like this&lt;/a&gt;, with a data type defining each column of the .csv:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-05-at-10.39.32-PM.png&quot;&gt;&lt;img class=&quot;wp-image-3061 aligncenter&quot; title=&quot;Screen Shot 2012-08-05 at 10.39.32 PM&quot; src=&quot;/assets/Screen-Shot-2012-08-05-at-10.39.32-PM.png&quot; alt=&quot;&quot; width=&quot;611&quot; height=&quot;454&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you're having trouble with this part, download my .csvt &lt;a href=&quot;https://docs.google.com/open?id=0B-4D8Alccn4xbnVVU2JyX3l1S0E&quot;&gt;here&lt;/a&gt;. Should you need to adjust the data types, just force open it in TextEdit and change them. The main two things to make sure is that the COUNTY column is defined as a string and the PERCENT column is defined as a value.&lt;/p&gt;
+&lt;p&gt;Once your .csvt file has been placed in the same directory as your .csv, go back to QGis and add a new vector layer just as you did before with the shapefile. This time, locate the .csv file and open it. QGis should then automatically detect the .csvt file in the background and assign the appropriate data types to each column in the .csv. To make sure this worked correctly, you can control-click the new .csv vector layer and select &quot;Properties&amp;gt;Fields&quot; to check that each field has the appropriate data type.&lt;/p&gt;
+&lt;p&gt;Now you can get down to the business of binding the data from the .csv to the shapefile. Select the shapefile layer and go to &quot;Properties&amp;gt;Joins.&quot; Add a new vector join, setting the .csv as the join layer and both the join field and the target field as COUNTY, like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-05-at-10.57.51-PM.png&quot;&gt;&lt;img class=&quot;wp-image-3062 aligncenter&quot; title=&quot;Screen Shot 2012-08-05 at 10.57.51 PM&quot; src=&quot;/assets/Screen-Shot-2012-08-05-at-10.57.51-PM.png&quot; alt=&quot;&quot; width=&quot;532&quot; height=&quot;355&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Applying the join should merge your spreadsheet and shapefile, binding the population data to the polygons using the shared &quot;COUNTY&quot;attribute that contains the matching county codes. To check and make sure everything worked correctly, control-click the shapefile vector layer in QGis and select &quot;Open attribute table.&quot; You should see the population data attached as columns to the end of the attribute table.&lt;/p&gt;
+&lt;p&gt;Once you've ensured that the data has been attached to the polygon vector layer, you can now export the new shapefile by control-clicking the shapefile vector layer, selecting &quot;Save as,&quot; and saving the layer in the ESRI Shapefile format. Now you're ready to compress the shapefile package into a .zip and import it into Tilemill. where you can style it, add interactivity and more.&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]3. Styling the map in Tilemill[/typography]&lt;/p&gt;
+&lt;div&gt;Open &lt;a href=&quot;http://tilemill.com&quot;&gt;Tilemill&lt;/a&gt;. Create a new project. Under the layers panel, add a new layer and locate the .zip of the ESRI shapefile you just exported from QGis. Upload the package. Upon doing so, you should immediately see the polygons for your state. Now you'll need to style the map in the style.mss panel using the Carto language. Because the numbers at hand for this map represent either a positive or a negative percent change, it makes sense to create a chloropleth map where red represents negative values and green represents positive values. You might try using &lt;a href=&quot;http://colorbrewer2.org&quot;&gt;ColorBrewer&lt;/a&gt; or &lt;a href=&quot;http://0to255.com&quot;&gt;0to255&lt;/a&gt; to find the right color ramp for your data. For this example, I used the following style parameters:&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;pre class=&quot;css&quot;&gt;#georgia {
+  line-color:#565A5D;
+  line-width:0.5;
+  polygon-opacity:1;
+  polygon-fill:#ae8;
+}
+
+#georgia[PERCENT&amp;lt;=5.5] {
+   polygon-fill:#558740
+}
+#georgia[PERCENT&amp;lt;=4] {
+   polygon-fill:#609948
+}
+#georgia[PERCENT&amp;lt;=3] {
+   polygon-fill:#6BAA50
+}
+#georgia[PERCENT&amp;lt;=2] {
+   polygon-fill:#7DB863
+}
+#georgia[PERCENT&amp;lt;=1.5] {
+   polygon-fill:#9FBA80
+}
+#georgia[PERCENT&amp;lt;=0.75] {
+   polygon-fill:#B8CCA1
+}
+#georgia[PERCENT&amp;lt;=0.3] {
+   polygon-fill:#D9DCC4
+}
+#georgia[PERCENT&amp;lt;=0] {
+   polygon-fill:#F4E5E0
+}
+#georgia[PERCENT&amp;lt;=-0.5] {
+   polygon-fill:#E6C5BB
+}
+#georgia[PERCENT&amp;lt;=-1] {
+   polygon-fill:#D8A696
+}
+#georgia[PERCENT&amp;lt;=-1.75] {
+   polygon-fill:#CC8472
+}
+#georgia[PERCENT&amp;lt;=-2.5] {
+   polygon-fill:#BC5942
+}
+#georgia[PERCENT&amp;lt;=-3.9] {
+   polygon-fill:#B34027
+}
+#georgia[PERCENT&amp;lt;=-5] {
+   polygon-fill:#A1280F
+}
+&lt;/pre&gt;
+&lt;p&gt;As you can see, the first set of paramaters defines the style attributes of the entire polygon, including the line width and the opacity of the #georgia layer. The following sets of paramaters all set the fill color of individual 'buckets,' sorted by the value of the PERCENT field.&lt;/p&gt;
+&lt;p&gt;Now, add layers for the surrounding geographical and cultural features, including roads, populated places, rivers, and surrounding states. When selecting the file source for your new layer, click &quot;Browse&amp;gt;MapBox&quot; to add predefined features from MapBox. Use the same method to style those layers as you did with the primary shapefile layer, pressing Command + S to save the map and refresh the view. Here's what my styled map ended up looking like:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-05-at-11.31.40-PM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3066&quot; title=&quot;Screen Shot 2012-08-05 at 11.31.40 PM&quot; src=&quot;/assets/Screen-Shot-2012-08-05-at-11.31.40-PM.png&quot; alt=&quot;&quot; width=&quot;528&quot; height=&quot;312&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]4. Adding the mouseover tooltips[/typography]&lt;br /&gt;
+In Tilemill, navigate to the Templates panel. Select &quot;Teaser.&quot; This is the field that defines what appears in the tooltip that appears when the user moves the mouse over each polygon. Basically, all you have to do is format the field to correspond to the values in your data.&lt;/p&gt;
+&lt;p&gt;Here's the formatting I used:&lt;/p&gt;
+&lt;pre class=&quot;html&quot;&gt;&lt;b&gt;}&lt;/b&gt;&lt;/pre&gt;
+&lt;div&gt;Percent Population Change, 2010-2011: }%&lt;/div&gt;
+&lt;hr /&gt;
+&lt;div&gt;2010 Population: }&lt;/div&gt;
+&lt;div&gt;2011 Population: }&lt;/div&gt;
+&lt;p&gt;That produced the following tooltip:&lt;br /&gt;
+&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-06-at-12.32.36-AM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3071&quot; title=&quot;Screen Shot 2012-08-06 at 12.32.36 AM&quot; src=&quot;/assets/Screen-Shot-2012-08-06-at-12.32.36-AM.png&quot; alt=&quot;&quot; width=&quot;318&quot; height=&quot;127&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As you can see, I used simple HTML markup, including the bold and horizontal line tags to add style elements. Each instance of } corresponds to a column name from the shapefile, and calls it up in the tooltip. So, to call up the percent change, I typed }, which refers to the PERCENT column from our data. Upon saving this, you'll see that the tooltip appears however you format it. The possibilities here really abound.&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]5. Adding a legend[/typography]&lt;/p&gt;
+&lt;p&gt;You can add a custom legend to map in much the same way. While you're still in the Templates panel, select &quot;Legend.&quot; This allows you to use basic HTML/CSS both to define the structure and style of your legend, as well as the position of both the legend and the tooltip. Here's a look at how I formatted the &quot;Legend&quot; field to produce my map:&lt;/p&gt;
+&lt;div class=&quot;my-legend&quot;&gt;
+&lt;div class=&quot;legend-title&quot;&gt;Estimated Population Change, 2010-2011&lt;/div&gt;
+&lt;div class=&quot;legend-scale&quot;&gt;
+&lt;ul class=&quot;legend-labels&quot;&gt;
+&lt;li&gt;&amp;lt;-5%&lt;/li&gt;
+&lt;li&gt;-5--4%&lt;/li&gt;
+&lt;li&gt;-4--3%&lt;/li&gt;
+&lt;li&gt;-3--2%&lt;/li&gt;
+&lt;li&gt;-2--1%&lt;/li&gt;
+&lt;li&gt;-1--0.5%&lt;/li&gt;
+&lt;li&gt;-0.5-0%&lt;/li&gt;
+&lt;li&gt;0-0.3%&lt;/li&gt;
+&lt;li&gt;0.3-0.8%&lt;/li&gt;
+&lt;li&gt;0.8-1.5%&lt;/li&gt;
+&lt;li&gt;1.5-2%&lt;/li&gt;
+&lt;li&gt;2-3%&lt;/li&gt;
+&lt;li&gt;3-4.5%&lt;/li&gt;
+&lt;li&gt;&amp;gt;4.5%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;legend-source&quot;&gt;Source: &lt;a href=&quot;http://www.census.gov/popest/&quot;&gt;U.S. Census Bureau, 5/17/2012.&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;html&quot;&gt;&lt;/pre&gt;
+&lt;p&gt;If you know rudimentary HTML/CSS, it's pretty easy to tell what's going on above. The background attribute corresponds to the color ramp I defined earlier in the style.mss field of Tilemill, and the HTML sets up the structure of the legend. After the HTML, I set some basic CSS styles, including the positioning of the legend and tooltips using the &quot;margin&quot; attribute and the font-size of the legend text. Save all that, and here's a glimpse of what you get:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-06-at-12.49.58-AM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3078&quot; title=&quot;Screen Shot 2012-08-06 at 12.49.58 AM&quot; src=&quot;/assets/Screen-Shot-2012-08-06-at-12.49.58-AM.png&quot; alt=&quot;&quot; width=&quot;599&quot; height=&quot;699&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]6. Exporting your map as MBTiles[/typography]&lt;/p&gt;
+&lt;p&gt;After you have the map styled to your liking in Tilemill, it's a fairly straightforward process to get the map on the Web. First, in the top right of Tilemill, select &quot;Export&quot; and choose &quot;MBTiles.&quot; This is the format for the tiles that you'll need to host the map on MapBox. Once the export panel appears, set the starting center point (for my map, it was -83.562,32.9349,6), as well as the bounds. Keep in mind that the smaller the bounds, the less tiles your map needs to render and, thus, the faster it will load. Only include the bounds you need in the map so as to minimize load time. Give the map a name, a brief description, and be sure to attribute the data source. Once you're finished, click &quot;Export&quot; and save your map in the directory of your choice. The resulting .MBTiles file will now go directly into MapBox, where your map will be hosted.&lt;/p&gt;
+&lt;p&gt;[typography font=&quot;PT Sans Narrow&quot; size=&quot;20&quot; size_format=&quot;px&quot;]7. Uploading your map to MapBox[/typography]&lt;/p&gt;
+&lt;p&gt;The final step in making your map viewable by the world involves uploading the .MBTiles file you just exported to MapBox. Create a MapBox account and select the option to upload a new map. Locate your .MBTiles file and upload it to MapBox. Once it's finshed you'll see a preview of the map that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/wp-content/uploads/2012/08/Screen-Shot-2012-08-06-at-12.59.06-AM.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-3080&quot; title=&quot;Screen Shot 2012-08-06 at 12.59.06 AM&quot; src=&quot;/assets/Screen-Shot-2012-08-06-at-12.59.06-AM.png&quot; alt=&quot;&quot; width=&quot;515&quot; height=&quot;393&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Enable the &quot;Map Details&quot; view. Set the map to &quot;Public,&quot; and make sure the Zoom, Legend, Scroll zoom and Tooltip options are selected. Deselect the &quot;Share links&quot; option. Then click embed, and copy the embed code to use the map wherever you please.&lt;/p&gt;
+&lt;p&gt;Just to give you a live view of how the finished map looks and behaves:&lt;/p&gt;
+&lt;p&gt;&lt;iframe src=&quot;http://a.tiles.mapbox.com/v3/carlvlewis.315301.html#7/33.514/-82.573&quot; width=&quot;600&quot; height=&quot;700&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;And there you go. Using Tilemill to create hover-enabled maps is easy and flexible, but it has its limitations. Because the program renders data using the UTF grid-system, it doesn't send vector data to your browser, meaning you can't use JavaScript or CSS3 to spice things up. The next step? Adding hover states and moving tooltips to create maps like &lt;a href=&quot;http://carlvlewis.net/cartodbleaflet/examples/countiesbytsplost.html&quot;&gt;this&lt;/a&gt; for polygons and &lt;a href=&quot;http://carlvlewis.net/cartodbleaflet/examples/nycIEP.html&quot;&gt;this&lt;/a&gt; for markers. Until then, feel free to ask any questions or point out any problems you may run into. Happy mapping!&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Fri, 02 Aug 2013 01:05:48 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/tutorial-building-a-hover-capable-map-using-tilemill/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/tutorial-building-a-hover-capable-map-using-tilemill/</guid>
+        
+        
+        <category>blog</category>
+        
+        <category>data visualization</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Why we built the new dosavannah.com and Do mobile app</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/introducing-the-new-dosavannah-com-and-do-mobile-app/&quot;&gt;&lt;img class=&quot; wp-image-3841&quot; src=&quot;/assets/dosavannah.png&quot; alt=&quot;Fred Brown / Getty Images&quot; /&gt;&lt;/a&gt;
+    After launching the expanded standalone print edition of &lt;a href=&quot;http://dosavannah.com/&quot;&gt;Do&lt;/a&gt;, our weekly arts-and-entertainment section for Savannah Morning News, back in March, we had a feeling the new physical product would soon outgrow its current digital home at savannahnow.com/do. We just didn't know how soon that day would come.&lt;/p&gt;
+&lt;p&gt;So, after only three hectic months of strategy meetings, planning sessions, company proposals, product development, site design and end-user implementation, we're happy to announce the launch of our new Do website at &lt;strong&gt;&lt;a href=&quot;http://dosavannah.com/&quot;&gt;dosavannah.com&lt;/a&gt;&lt;/strong&gt;, as well as an accompanying interactive mobile &lt;strong&gt;&lt;a href=&quot;http://dosavannah.com/app&quot;&gt;Do app&lt;/a&gt;&lt;/strong&gt; for iOS and Android devices.&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;[gallery ids=&quot;3589,3458,3399&quot;]&lt;/p&gt;
+&lt;p&gt;What's so great about the new Do products, you ask? Well, a few things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Mobile/tablet-friendly HTML5 design - &lt;/strong&gt;As news consumers continue to shift to mobile and tablet devices, it's becoming more and more important for publishers to offer a consistent display and user experience across all platforms. This is even more of an imperative for much of our Do audience, who tend to skew younger and more mobile than the average user. Go ahead, load up dosavannah.com and resize your browser. Pretty cool, huh? (hint: it reads quite nicely on my iPad).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sponsored content  &lt;/strong&gt;- The implementation of sponsored posts on the site allows us to integrate advertising in a way that doesn't diminish the user experience, while also creating more value for advertisers.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reflects the growing importance of music, arts, food, community events and entertainment in our market - &lt;/strong&gt;As Savannah continues to become a regional, if not national, mecca for arts and culture, the new Do digital products allow us to highlight those aspects of the community more than we would be able to do on savannahnow.com alone. There's only so much screen real-estate on a single website at any given point in time, and usage patterns continue to show that most users visit a site, scroll through the articles at the top of the page, then go about their day or navigate to a new site. Since our primary duty as a news organization is to inform the public of matters relevant to their day-to-day lives, it's easy for daily traffic updates, weather alerts or longer investigative pieces to receive higher editorial priority online than content that highlight's our city's unique cultural experience. That's why it deserves its own platform through dosavannah.com&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gives users a free tool to discover content that helps connect them with the community - &lt;/strong&gt;One of the biggest reasons we also launched a separate native Do app to accompany the site is so that users can always have in their pocket a list of what's going on around town or which new restaurant to try out for dinner, even when they don't have cell reception. It also provides an added level of interactivity, including geolocation, restaurant reservation booking, multimedia streams, photo-uploads and check-ins from nearby users. Sure, you could probably also get a lot of that functionality from Yelp (which is, by the way, integrated into the Do app for you already), but we believe the added value of having those features alongside our editorial content and local deals enhances the experience for the end user. You can find tips from a fellow user about what to order at a new restaurant, and within the same listing also find a link to &quot;Eat It and Like It&quot; columnist Jesse Blanco's take on the matter.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Social integration/authentification - &lt;/strong&gt;The new Do products integrate with the social web on a consistent and deep level, befitting of the growing role those platforms play in our users' everyday lives. Rather than having to remember yet another password, you can login to the app via Facebook or Twitter, and instantly authenticate your identity on the website through Facebook. This not only simplifies the process of interaction, but helps weed out the noise of spam and troll commenters.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And all that's only just the beginning of what our new platforms can offer.&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Sun, 14 Jul 2013 13:48:26 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/introducing-the-new-dosavannah-com-and-do-mobile-app/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/introducing-the-new-dosavannah-com-and-do-mobile-app/</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>&quot;Newspapers are the new startups&quot;</title>
+        <description>&lt;blockquote&gt;&lt;em&gt;Newspapers are the new startups . . . we’re starting to see a lot of great changes as technologies improve and cultures change.&quot;&lt;br /&gt;
+&lt;span style=&quot;color: #808080;&quot;&gt;-&lt;a href=&quot;https://twitter.com/JohnMLevitt&quot;&gt;&lt;span style=&quot;color: #808080;&quot;&gt;John Levitt&lt;/span&gt;&lt;/a&gt;, Director of Sales and Marketing, &lt;a href=&quot;http://blog.parsely.com/post/33843943455/newspapers-are-the-new-startups&quot;&gt;&lt;span style=&quot;color: #808080;&quot;&gt;Parse.ly&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Levitt's is one of the most insightful takes on the publishing industry I've heard in a while. It's going to take a lot of restructuring and a ground-up approach, but I'm excited to be a part of it as we embrace the start-up culture in Savannah.&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Wed, 10 Jul 2013 05:49:35 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/newspapers-are-the-new-startups/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/newspapers-are-the-new-startups/</guid>
+        
+        <category>business models</category>
+        
+        <category>media</category>
+        
+        <category>quotations</category>
+        
+        
+        <category>blog</category>
+        
+        <category>media business models</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>Tutorial: Creating mobile-friendly interactive timelines under deadline with Google Spreadsheets</title>
+        <description>&lt;p&gt;&lt;iframe src=&quot;http://player.vimeo.com/video/67050820&quot; width=&quot;100%&quot; height=&quot;350&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;This video tutorial walks you through the steps of building an interactive timeline using a Google Spreadsheet and a simple remote-hosted library at timeline.verite.co&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Fri, 14 Jun 2013 04:57:39 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/video-tutorial-creating-mobile-friendly-interactive-timelines-on-the-fly-with-timelinejs-and-google-spreadsheets/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/video-tutorial-creating-mobile-friendly-interactive-timelines-on-the-fly-with-timelinejs-and-google-spreadsheets/</guid>
+        
+        
+        <category>blog</category>
+        
+        <category>tutorials</category>
+        
+      </item>
+      
+    
+      
+      <item>
+        <title>SavSwap: Tackling the online classified ads market</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://carlvlewis.net/introducing-the-new-dosavannah-com-and-do-mobile-app/&quot;&gt;&lt;img class=&quot; wp-image-3841&quot; src=&quot;/assets/Screen-Shot-2013-06-07-at-10.59.44-PM-e1373450527243.jpg&quot; alt=&quot;Fred Brown / Getty Images&quot; /&gt;&lt;/a&gt;
+    Innovative, quality journalism takes money to produce. In the past, one of the largest revenue streams for news organizations has traditionally come from the classified ad market – a revenue stream that has all but dried up in today's era of Craigslist and eBay. As an online editor, developer, manager and digital strategist for &lt;a href=&quot;http://savannahnow.com&quot;&gt;Savannah Morning News and savannahnow.com&lt;/a&gt;, a midsized news organization owned by &lt;a href=&quot;http://morris.com&quot;&gt;Morris Publishing Group&lt;/a&gt;, I've sat through countless digital strategy meetings discussing how we as a company can win back a sliver of the online classified ad market, if for no other reason than audience growth, and with the longterm goal of driving revenue to support our company's journalistic efforts.&lt;/p&gt;
+&lt;p&gt;&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;After brainstorming the issue with our V.P. of Audience &lt;a href=&quot;http://yelvington.com&quot;&gt;Steve Yelvington&lt;/a&gt;, I identified a few key competitive advantages news organizations may still possess in the classified market:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Brand trust/recognition&lt;/em&gt; - Local news organizations still command considerable trust and boosterism in the markets they serve, adding an extra level of accountability to the classified ad process.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;More secure social and physical verification&lt;/em&gt; - Unlike the major national competitors, we have the opportunity to verify users' identities using social, email and physical address verification, further weeding out spammers and scammers.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Mobile-centric technologies&lt;/em&gt; - The massive scale of national competitors has so far prevented them from implementing a more seamless mobile user experience using HTML5/responsive design strategies.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Print marketing&lt;/em&gt; - Local news organizations can still leverage their considerable print marketing footprint to add extra value to the online classified ad experience, including setting up a secure drop-off and pick-up point for transactions so that users don't have to go into the homes of strangers.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Social marketing&lt;/em&gt; - Strategic use of social channels tied in with existing larger social networks from local publishers targeting local buyers only. For example, each ad with an approved photo will be fed to an Instagram, Pinterest and Twitter account, which would serve as a second, highly visual storefront.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following weekend, I built &lt;a href=&quot;http://dev-savswap.gotpantheon.com&quot;&gt;SavSwap&lt;/a&gt;, a prototype for the sort of product I believe could harness local news organizations' competitive advantages while at the same time creating a cleaner, more visual, simpler and more secure user experience than the national competitors have to offer. While still very much in beta state, SavSwap is now being proposed as a model for all Morris properties to adopt, and is slated for a local launch in the Savannah market this quarter.&lt;/p&gt;
+&lt;p&gt;[launch_button text=&quot;Launch beta version of project&quot; url=&quot;http://dev-savswap.gotpantheon.com/&quot;]&lt;/p&gt;
+&lt;p&gt;A few of the key features that make SavSwap stand apart from other classified ad attempts include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A fully responsive, device-agnostic design that makes ad listing, browsing and submission easy and free from wherever you are, mo matter device you use.&lt;/li&gt;
+&lt;li&gt;&lt;span style=&quot;line-height: 13px;&quot;&gt;Social media and email authentification of &lt;em&gt;all&lt;/em&gt; users.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Premium listing options for paid members of savannahnow.com, including &quot;Membership&quot; badges and higher page prominence&lt;/li&gt;
+&lt;li&gt;An inherently visual experience, with infinite scroll as well as traditional taxonomy and keyword search.&lt;/li&gt;
+&lt;li&gt;Geolocation.&lt;/li&gt;
+&lt;li&gt;Confidential on-site messaging system, with the option for users to display further contact information if they so desire.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Features that we plan to implement include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Options for users to pay a small additional fee for their listing to appear in the print edition of Savannah Morning News.&lt;/li&gt;
+&lt;li&gt;A native iOS and Android mobile app (xCode template has already been built and is currently being prepared for submission to iTunes and Google Play stores).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For a brief presentation outlining the SavSwap model, see my &lt;a href=&quot;http://www.slideshare.net/carlvlewis/tackling-the-local-classified-ad-market&quot;&gt;slideshare presentation here&lt;/a&gt;. To see SavSwap in its current development state, &lt;a href=&quot;http://dev-savswap.gotpantheon.com&quot;&gt;see here.&lt;/a&gt;&lt;/p&gt;
+</description>
+        
+          <description>{&quot;options&quot;=&gt;{}}</description>
+        
+        <pubDate>Fri, 07 Jun 2013 22:32:09 +0530</pubDate>
+        <link>http://brianmaierjr.github.com/long-haul/blog/savswap-tackling-the-online-classified-ads-market/</link>
+        <guid isPermaLink="true">http://brianmaierjr.github.com/long-haul/blog/savswap-tackling-the-online-classified-ads-market/</guid>
+        
+        
+        <category>blog</category>
+        
+        <category>media business models</category>
+        
+      </item>
+      
+    
+  </channel>
+</rss>
