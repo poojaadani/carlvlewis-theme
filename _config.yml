@@ -2,7 +2,7 @@ title: Carl V. Lewis
 description: Data and visual journalist; UX designer and full-stack dev.; digital educator.
 
 url: http://brianmaierjr.github.com/long-haul
-baseurl: ""
+baseurl: 'http://poojaadani.github.io/carlvlewis-theme'
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
